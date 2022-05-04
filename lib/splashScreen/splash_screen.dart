@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:riders_app/global/global.dart';
 
+import '../authentication/auth_screen.dart';
+import '../mainScreens/home_screen.dart';
+
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
 
@@ -14,16 +17,16 @@ class _MySplashScreenState extends State<MySplashScreen> {
 
   startTimer()
   {
-    Timer(const Duration(seconds: 3), () async {
+    Timer(const Duration(seconds: 2), () async {
       // need to create instance of our current firebase user
       // if user is already logged in
       if(firebaseAuth.currentUser != null) {
         // logged in, push to homepage
-        // Navigator.push(context, MaterialPageRoute(builder: (c) => const HomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (c) => const HomeScreen()));
       }
       else {
         // if not logged in, go to login screen
-        // Navigator.push(context, MaterialPageRoute(builder: (c) => const AuthScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (c) => const AuthScreen()));
       }
     });
   }
